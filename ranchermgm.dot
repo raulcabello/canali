@@ -1,0 +1,79 @@
+graph {
+rankdir="LR";
+    subgraph cluster1 {
+        color = transparent ;
+        linode [style=filled, fillcolor="#ccccff", href="https://github.com/linode/docker-machine-driver-linode/"]
+        cloudca [style=filled, fillcolor="#ccccff", href="https://github.com/cloud-ca/docker-machine-driver-cloudca"]
+        cloudscale [style=filled, fillcolor="#ccccff", href="https://github.com/cloudscale-ch/docker-machine-driver-cloudscale"]
+        oci [style=filled, fillcolor="#ccccff", href="https://github.com/rancher-plugins/rancher-machine-driver-oci"]
+        otc [style=filled, fillcolor="#ccccff", href="https://github.com/rancher-plugins/rancher-machine-driver-otc"]
+        packethost [style=filled, fillcolor="#ccccff", href="https://github.com/packethost/docker-machine-driver-packet"]
+        pnap [style=filled, fillcolor="#ccccff", href="https://github.com/phoenixnap/docker-machine-driver-pnap"]
+        pinganyun  [style=filled, fillcolor="#ccccff", href="https://drivers.rancher.cn/node-driver-/0.3.0"]
+        go [style=filled, fillcolor="#ccffcc"];
+        docker [style=filled, fillcolor="#ccffcc"];
+        machine [style=filled, fillcolor="#ffcccc", href="https://github.com/rancher/machine"];
+        machine -- docker;
+        machine -- go;
+        machine -- linode;
+        machine -- cloudca;
+        machine -- cloudscale;
+        machine -- oci;
+        machine -- otc;
+        machine -- packethost;
+        machine -- pnap;
+        machine -- pinganyun;
+        alpine [style=filled, fillcolor="#ccccff", href="https://hub.docker.com/_/alpine"]
+        telemetry [style=filled, fillcolor="#ffcccc", href="https://github.com/rancher/telemetry"];
+        telemetry -- go;
+        telemetry -- docker;
+        telemetry -- alpine;
+        "rancher helm"  [style=filled, fillcolor="#ffcccc", href="https://github.com/rancher/helm"];
+        loglevel [style=filled, fillcolor="#ffcccc", href="hhttps://github.com/rancher/loglevel"];
+        "image build base"  [style=filled, fillcolor="#ffcccc", href="https://github.com/rancher/image-build-base"];
+        "rancher coredns"  [style=filled, fillcolor="#ffcccc", href="https://github.com/rancher/image-build-coredns"];
+        "rancher coredns" -- "image build base";
+        kubectl  [style=filled, fillcolor="#ccffcc", href="https://storage.googleapis.com/kubernetes-release"];
+        k9s [style=filled, fillcolor="#ccccff", href="https://github.com/derailed/k9s/releases"];
+        shell [style=filled, fillcolor="#ffcccc", href="https://github.com/rancher/shell"];
+        shell -- alpine;
+        shell -- kubectl;
+        shell -- k9s;
+        "metrics server" [style=filled, fillcolor="#ffcccc", href="https://github.com/rancher/image-build-k8s-metrics-server"];
+        "metrics server" -- "image build base";
+        "local path provisioner" [style=filled, fillcolor="#ffcccc", href="https://github.com/rancher/local-path-provisioner"];
+        "local path provisioner" -- alpine;
+        helm [style=filled, fillcolor="#ccffcc", href="https://get.helm.sh"];
+        fleet [style=filled, fillcolor="#ffcccc", href="https://github.com/rancher/fleet"];
+        fleet -- helm;
+        fleet -- alpine;
+        agent [style=filled, fillcolor="#ffcccc", href="https://github.com/rancher/agent"];
+        agent -- docker;
+        trivy [style=filled, fillcolor="#ccccff", href="https://github.com/aquasecurity/trivy"];
+        k3s [style=filled, fillcolor="#ccccff", href="https://github.com/k3s-io/k3s"];
+        k3s -- trivy;
+        k3s -- alpine;
+        "Rancher MCM" [href="https://github.com/rancher/rancher"]
+        "Rancher MCM" -- machine;
+        "Rancher MCM" -- telemetry;
+        "Rancher MCM" -- "rancher helm";
+        "Rancher MCM" -- loglevel;
+        "Rancher MCM" -- "rancher coredns";
+        "Rancher MCM" -- shell;
+        "Rancher MCM" -- "metrics server";
+        "Rancher MCM" -- "local path provisioner";
+        "Rancher MCM" -- fleet;
+        "Rancher MCM" -- agent;
+        "Rancher MCM" -- trivy;
+        "Rancher MCM" -- k3s;
+    }
+
+    subgraph cluster2 {
+        label = "Legend" ;
+        shape = rectangle ;
+        color = black ;
+        rancher [style=filled, fillcolor="#ffcccc"] ;
+        "external without s390x binary" [style=filled, fillcolor="#ccccff"] ;
+        "external with s390x binary" [style=filled, fillcolor="#ccffcc", weight=100] ;
+    }
+}
