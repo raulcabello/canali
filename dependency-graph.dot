@@ -23,7 +23,7 @@ rankdir="LR";
         machine -- packethost;
         machine -- pnap;
         machine -- pinganyun;
-        alpine [style=filled, fillcolor="#ccccff", href="https://hub.docker.com/_/alpine"]
+        alpine [style=filled, fillcolor="#ccffcc", href="https://hub.docker.com/_/alpine"]
         telemetry [style=filled, fillcolor="#ffcccc", href="https://github.com/rancher/telemetry"];
         telemetry -- go;
         telemetry -- docker;

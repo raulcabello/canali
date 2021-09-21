@@ -165,7 +165,7 @@
 <g id="node12" class="node">
 <title>alpine</title>
 <g id="a_node12"><a xlink:href="https://hub.docker.com/_/alpine" xlink:title="alpine">
-<ellipse fill="#ccccff" stroke="#000000" cx="581.9562" cy="-378" rx="32.4942" ry="18"/>
+<ellipse fill="#ccffcc" stroke="#000000" cx="581.9562" cy="-378" rx="32.4942" ry="18"/>
 <text text-anchor="middle" x="581.9562" y="-374.3" font-family="Times,serif" font-size="14.00" fill="#000000">alpine</text>
 </a>
 </g>
