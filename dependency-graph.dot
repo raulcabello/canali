@@ -71,8 +71,11 @@ rankdir="LR";
         "rke2-runtime" [style=filled, fillcolor="#ffcccc", href="https://github.com/rancher/rke2"]; 
         rke2 -- "rke2-runtime";
         "hardened-containerd"   [style=filled, fillcolor="#ffcccc", href="https://github.com/rancher/image-build-containerd"];
+        "hardened-containerd" -- "image build base";
         "hardened-runc" [style=filled, fillcolor="#ffcccc", href="https://github.com/rancher/image-build-runc"];
+        "hardened-runc" -- "image build base";
         "hardened-crictl"  [style=filled, fillcolor="#ffcccc", href="https://github.com/rancher/image-build-crictl"];
+        "hardened-crictl" -- "image build base";
         "rke2-runtime" -- "hardened-containerd";
         "rke2-runtime" -- "hardened-runc";
         "rke2-runtime" -- "hardened-crictl";
@@ -85,6 +88,7 @@ rankdir="LR";
         rke2 -- "hardened-kubernetes";
         "k3s-root" [style=filled, fillcolor="#ccccff", href="https://github.com/k3s-io/k3s-root"];
         "hardened-kubernetes" -- "k3s-root";
+        "hardened-kubernetes" -- "image build base";
     }
     
 
